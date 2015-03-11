@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @player.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @player.weight %>
+</p>
+
+<p>
+  <strong>Shirt number:</strong>
+  <%= @player.shirt_number %>
+</p>
+
+<p>
+  <strong>Debut date:</strong>
+  <%= @player.debut_date %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+
+<dl class="dl-horizontal">
+  
+  <dd><%= @player.person.first_name %></dd>
+  
+  <dd><%= @player.person.middle_name %></dd>
+  
+  <dd><%= @player.person.last_name %></dd>
+  
+  <dd><%= @player.person.sur_name %></dd>
+  
+  <dd><%= @player.person.sex %></dd>
+  
+  <dd><%= @player.person.identification_number %></dd>
+  
+  <dd><%= @player.person.birthdate %></dd>
+  
+  <dd><%= @player.person.phone %></dd>
+  
+  <dd><%= @player.person.mobile %></dd>
+  
+  <dd><%= @player.person.additional_phone %></dd>
+  
+  <dd><%= @player.person.email %></dd>
+  
+  <dd><%= @player.person.salary %></dd>
+  
+  <dd><%= @player.person.additional_information %></dd>
+  
+  <dd><%= @player.person.photo %></dd>
+  
+  <dd><%= @player.person.city_id %></dd>
+</dl>
+
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @player.team %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @player.position %>
+</p>
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

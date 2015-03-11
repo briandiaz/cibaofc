@@ -4,7 +4,7 @@ default: &default
   database: df31tgr91j37sm
   pool: 5
   username: eajoeotyfaajfc
-  password: 4zETK4OHaPUsDBBZURbsHY3iPk
+  password: nsl7YKMzt6R9OQ0BCxaFvNzaQ3
   host: ec2-23-21-183-70.compute-1.amazonaws.com
   port: 5432
 

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stadium.name %>
+</p>
+
+<p>
+  <strong>Founded date:</strong>
+  <%= @stadium.founded_date %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @stadium.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @stadium.width %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @stadium.capacity %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @stadium.photo %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @stadium.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @stadium.city %>
+</p>
+
+<%= link_to 'Edit', edit_stadium_path(@stadium) %> |
+<%= link_to 'Back', stadiums_path %>

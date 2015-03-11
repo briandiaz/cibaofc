@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: cities
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  iso        :string(255)
+#  country_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_cities_on_country_id  (country_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  iso: MyString
+  country_id: 
+
+two:
+  name: MyString
+  iso: MyString
+  country_id: 

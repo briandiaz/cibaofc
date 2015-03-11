@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  height: 9.99
+  weight: 9.99
+  shirt_number: 1
+  debut_date: 2015-03-10
+  person_id: 
+  team_id: 
+  position_id: 
+
+two:
+  name: MyString
+  height: 9.99
+  weight: 9.99
+  shirt_number: 1
+  debut_date: 2015-03-10
+  person_id: 
+  team_id: 
+  position_id: 

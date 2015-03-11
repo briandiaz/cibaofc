@@ -1,0 +1,31 @@
+<h1>Listing technical_staffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Team</th>
+      <th>Team</th>
+      <th>Tech role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @technical_staffs.each do |technical_staff| %>
+      <tr>
+        <td><%= technical_staff.person %></td>
+        <td><%= technical_staff.team %></td>
+        <td><%= technical_staff.team %></td>
+        <td><%= technical_staff.tech_role %></td>
+        <td><%= link_to 'Show', technical_staff %></td>
+        <td><%= link_to 'Edit', edit_technical_staff_path(technical_staff) %></td>
+        <td><%= link_to 'Destroy', technical_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Technical staff', new_technical_staff_path %>

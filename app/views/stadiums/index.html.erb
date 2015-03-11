@@ -1,0 +1,39 @@
+<h1>Listing stadiums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Founded date</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Capacity</th>
+      <th>Photo</th>
+      <th>Country</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stadiums.each do |stadium| %>
+      <tr>
+        <td><%= stadium.name %></td>
+        <td><%= stadium.founded_date %></td>
+        <td><%= stadium.length %></td>
+        <td><%= stadium.width %></td>
+        <td><%= stadium.capacity %></td>
+        <td><%= stadium.photo %></td>
+        <td><%= stadium.country %></td>
+        <td><%= stadium.city %></td>
+        <td><%= link_to 'Show', stadium %></td>
+        <td><%= link_to 'Edit', edit_stadium_path(stadium) %></td>
+        <td><%= link_to 'Destroy', stadium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stadium', new_stadium_path %>

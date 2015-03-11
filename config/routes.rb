@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :technical_staffs
+
+  resources :tech_roles
+
+  resources :players
+
+  resources :positions
+
+  resources :teams
+
+  resources :stadiums
+
+  resources :stadia
+
+  resources :people
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

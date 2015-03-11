@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  short_name   :string(255)
+#  founded_date :date
+#  value        :decimal(, )
+#  stadium_id   :integer
+#  country_id   :integer
+#  city_id      :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+# Indexes
+#
+#  index_teams_on_city_id     (city_id)
+#  index_teams_on_country_id  (country_id)
+#  index_teams_on_stadium_id  (stadium_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  short_name: MyString
+  founded_date: 2015-03-10
+  value: 9.99
+  stadium_id: 
+  country_id: 
+  city_id: 
+
+two:
+  name: MyString
+  short_name: MyString
+  founded_date: 2015-03-10
+  value: 9.99
+  stadium_id: 
+  country_id: 
+  city_id: 

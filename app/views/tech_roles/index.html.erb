@@ -1,0 +1,29 @@
+<h1>Listing tech_roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short name</th>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tech_roles.each do |tech_role| %>
+      <tr>
+        <td><%= tech_role.name %></td>
+        <td><%= tech_role.short_name %></td>
+        <td><%= tech_role.photo %></td>
+        <td><%= link_to 'Show', tech_role %></td>
+        <td><%= link_to 'Edit', edit_tech_role_path(tech_role) %></td>
+        <td><%= link_to 'Destroy', tech_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tech role', new_tech_role_path %>
