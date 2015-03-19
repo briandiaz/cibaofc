@@ -32,6 +32,12 @@ class Player < ActiveRecord::Base
     self.person ||= self.build_person()
   end
   
+  def self.height_in_feet()
+    feet, inches = (height/30.48).to_s.split(".")
+    inches = inches[0]
+    "#{feet}' #{inches}\""
+  end
+  
   #def self.profile_name
   #  "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
   #end
