@@ -32,7 +32,7 @@ class Player < ActiveRecord::Base
     self.person ||= self.build_person()
   end
   
-  def self.height_in_feet()
+  def self.height_to_feet_inches()
     feet, inches = (height/30.48).to_s.split(".")
     inches = inches[0]
     "#{feet}' #{inches}\""
