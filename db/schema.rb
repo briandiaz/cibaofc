@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310185736) do
+ActiveRecord::Schema.define(version: 20150318053617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,55 @@ ActiveRecord::Schema.define(version: 20150310185736) do
     t.datetime "updated_at"
     t.string   "iso"
   end
+
+  create_table "games", force: true do |t|
+    t.datetime "date"
+    t.integer  "round_id"
+    t.integer  "home_team"
+    t.integer  "away_team"
+    t.integer  "stadium_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["round_id"], name: "index_games_on_round_id", using: :btree
+  add_index "games", ["stadium_id"], name: "index_games_on_stadium_id", using: :btree
+
+  create_table "line_up_subs", force: true do |t|
+    t.integer  "lineup_id"
+    t.integer  "player_1"
+    t.integer  "player_2"
+    t.integer  "player_3"
+    t.integer  "player_4"
+    t.integer  "player_5"
+    t.integer  "player_6"
+    t.integer  "player_7"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_up_subs", ["lineup_id"], name: "index_line_up_subs_on_lineup_id", using: :btree
+
+  create_table "line_ups", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "team_id"
+    t.integer  "player_1"
+    t.integer  "player_2"
+    t.integer  "player_3"
+    t.integer  "player_4"
+    t.integer  "player_5"
+    t.integer  "player_6"
+    t.integer  "player_7"
+    t.integer  "player_8"
+    t.integer  "player_9"
+    t.integer  "player_10"
+    t.integer  "player_11"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_ups", ["game_id"], name: "index_line_ups_on_game_id", using: :btree
+  add_index "line_ups", ["team_id"], name: "index_line_ups_on_team_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -57,6 +106,14 @@ ActiveRecord::Schema.define(version: 20150310185736) do
   add_index "people", ["city_id"], name: "index_people_on_city_id", using: :btree
   add_index "people", ["country_id"], name: "index_people_on_country_id", using: :btree
 
+  create_table "play_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "value"
+    t.string   "commentary"
+  end
+
   create_table "players", force: true do |t|
     t.decimal  "height"
     t.decimal  "weight"
@@ -73,6 +130,21 @@ ActiveRecord::Schema.define(version: 20150310185736) do
   add_index "players", ["position_id"], name: "index_players_on_position_id", using: :btree
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
+  create_table "plays", force: true do |t|
+    t.time     "time"
+    t.decimal  "x_coordinate"
+    t.decimal  "y_coordinate"
+    t.integer  "by"
+    t.integer  "assist_by"
+    t.integer  "playtype_id"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plays", ["game_id"], name: "index_plays_on_game_id", using: :btree
+  add_index "plays", ["playtype_id"], name: "index_plays_on_playtype_id", using: :btree
+
   create_table "positions", force: true do |t|
     t.string   "name"
     t.string   "short_name"
@@ -80,6 +152,25 @@ ActiveRecord::Schema.define(version: 20150310185736) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rounds", force: true do |t|
+    t.string   "name"
+    t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rounds", ["season_id"], name: "index_rounds_on_season_id", using: :btree
+
+  create_table "seasons", force: true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seasons", ["country_id"], name: "index_seasons_on_country_id", using: :btree
 
   create_table "stadiums", force: true do |t|
     t.string   "name"
@@ -96,6 +187,19 @@ ActiveRecord::Schema.define(version: 20150310185736) do
 
   add_index "stadiums", ["city_id"], name: "index_stadiums_on_city_id", using: :btree
   add_index "stadiums", ["country_id"], name: "index_stadiums_on_country_id", using: :btree
+
+  create_table "substitutions", force: true do |t|
+    t.time     "time"
+    t.integer  "player_in"
+    t.integer  "player_out"
+    t.integer  "game_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "substitutions", ["game_id"], name: "index_substitutions_on_game_id", using: :btree
+  add_index "substitutions", ["team_id"], name: "index_substitutions_on_team_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"

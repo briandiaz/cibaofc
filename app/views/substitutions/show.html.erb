@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @substitution.time %>
+</p>
+
+<p>
+  <strong>Player in:</strong>
+  <%= @substitution.player_in %>
+</p>
+
+<p>
+  <strong>Player out:</strong>
+  <%= @substitution.player_out %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @substitution.game %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @substitution.team %>
+</p>
+
+<%= link_to 'Edit', edit_substitution_path(@substitution) %> |
+<%= link_to 'Back', substitutions_path %>

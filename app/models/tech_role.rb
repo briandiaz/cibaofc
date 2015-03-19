@@ -11,4 +11,8 @@
 #
 
 class TechRole < ActiveRecord::Base
+    has_many :technical_staffs
+    
+    validates :name, presence: true
+    
 end

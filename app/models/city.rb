@@ -16,6 +16,8 @@
 
 class City < ActiveRecord::Base
     belongs_to :country
+    
+    has_many :cities
   
     validates :name, presence: true
     validates :country_id, presence: true, numericality: true

@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :substitutions
+
+  resources :plays
+
+  resources :play_types
+
+  resources :line_up_subs
+
+  resources :line_ups
+
+  resources :games
+
+  resources :rounds
+
+  resources :seasons
+
   resources :technical_staffs
 
   resources :tech_roles

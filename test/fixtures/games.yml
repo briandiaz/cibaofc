@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: games
+#
+#  id         :integer          not null, primary key
+#  date       :datetime
+#  round_id   :integer
+#  home_team  :integer
+#  away_team  :integer
+#  stadium_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_games_on_round_id    (round_id)
+#  index_games_on_stadium_id  (stadium_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2015-03-18 01:38:04
+  round_id: 
+  home_team: 1
+  visitor_team: 1
+  stadium_id: 
+
+two:
+  date: 2015-03-18 01:38:04
+  round_id: 
+  home_team: 1
+  visitor_team: 1
+  stadium_id: 

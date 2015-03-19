@@ -31,10 +31,9 @@
 class Person < ActiveRecord::Base
   belongs_to :city
   has_one    :player
+  has_one    :technical_staff
   
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :sex, presence: true
+  validates :first_name, :last_name, :sex, presence: true
   
   
   def self.full_name

@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: play_types
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  value      :integer
+#  commentary :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+
+two:
+  name: MyString

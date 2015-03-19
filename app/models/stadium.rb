@@ -24,9 +24,13 @@ class Stadium < ActiveRecord::Base
   belongs_to :country
   belongs_to :city
   
+  has_many   :teams
   
-  validates :name, presence: true
-  validates :city_id, presence: true, numericality: true
-  validates :country_id, presence: true, numericality: true
+  validates :name, :country_id, :city_id, presence: true
+  validates :country_id, :city_id, numericality: true
+  
+  def self.all_collect
+    Stadium.all.collect {|p| [ p.name + " - " + p.city.name, p.id ] }
+  end
   
 end

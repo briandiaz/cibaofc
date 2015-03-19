@@ -27,9 +27,12 @@ class Team < ActiveRecord::Base
   
   
   validates :name, presence: true
-  validates :stadium_id, presence: true, numericality: true
-  validates :city_id, presence: true, numericality: true
-  validates :country_id, presence: true, numericality: true
+  validates :stadium_id, :city_id, :country_id, presence: true, numericality: true
+  
+  
+  def self.all_collect
+    Team.all.collect {|p| [ p.name + " - " + p.city.name, p.id ] }
+  end
 
   
 end

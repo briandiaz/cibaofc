@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: line_up_subs
+#
+#  id         :integer          not null, primary key
+#  lineup_id  :integer
+#  player_1   :integer
+#  player_2   :integer
+#  player_3   :integer
+#  player_4   :integer
+#  player_5   :integer
+#  player_6   :integer
+#  player_7   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_line_up_subs_on_lineup_id  (lineup_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lineup_id: 
+  player_1: 1
+  player_2: 1
+  player_3: 1
+  player_4: 1
+  player_5: 1
+  player_6: 1
+  player_7: 1
+
+two:
+  lineup_id: 
+  player_1: 1
+  player_2: 1
+  player_3: 1
+  player_4: 1
+  player_5: 1
+  player_6: 1
+  player_7: 1

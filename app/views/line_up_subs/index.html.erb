@@ -1,0 +1,39 @@
+<h1>Listing line_up_subs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lineup</th>
+      <th>Player 1</th>
+      <th>Player 2</th>
+      <th>Player 3</th>
+      <th>Player 4</th>
+      <th>Player 5</th>
+      <th>Player 6</th>
+      <th>Player 7</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_up_subs.each do |line_up_sub| %>
+      <tr>
+        <td><%= line_up_sub.lineup %></td>
+        <td><%= line_up_sub.player_1 %></td>
+        <td><%= line_up_sub.player_2 %></td>
+        <td><%= line_up_sub.player_3 %></td>
+        <td><%= line_up_sub.player_4 %></td>
+        <td><%= line_up_sub.player_5 %></td>
+        <td><%= line_up_sub.player_6 %></td>
+        <td><%= line_up_sub.player_7 %></td>
+        <td><%= link_to 'Show', line_up_sub %></td>
+        <td><%= link_to 'Edit', edit_line_up_sub_path(line_up_sub) %></td>
+        <td><%= link_to 'Destroy', line_up_sub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line up sub', new_line_up_sub_path %>

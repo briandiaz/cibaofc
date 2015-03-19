@@ -1,0 +1,49 @@
+<%= form_for(@line_up_sub) do |f| %>
+  <% if @line_up_sub.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line_up_sub.errors.count, "error") %> prohibited this line_up_sub from being saved:</h2>
+
+      <ul>
+      <% @line_up_sub.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lineup_id %><br>
+    <%= f.text_field :lineup_id %>
+  </div>
+  <div class="field">
+    <%= f.label :player_1 %><br>
+    <%= f.number_field :player_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_2 %><br>
+    <%= f.number_field :player_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_3 %><br>
+    <%= f.number_field :player_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_4 %><br>
+    <%= f.number_field :player_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_5 %><br>
+    <%= f.number_field :player_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_6 %><br>
+    <%= f.number_field :player_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :player_7 %><br>
+    <%= f.number_field :player_7 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

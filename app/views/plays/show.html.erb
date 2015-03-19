@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @play.time %>
+</p>
+
+<p>
+  <strong>X coordinate:</strong>
+  <%= @play.x_coordinate %>
+</p>
+
+<p>
+  <strong>Y coordinate:</strong>
+  <%= @play.y_coordinate %>
+</p>
+
+<p>
+  <strong>By:</strong>
+  <%= @play.by %>
+</p>
+
+<p>
+  <strong>Assist by:</strong>
+  <%= @play.assist_by %>
+</p>
+
+<p>
+  <strong>Playtype:</strong>
+  <%= @play.playtype %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @play.game %>
+</p>
+
+<%= link_to 'Edit', edit_play_path(@play) %> |
+<%= link_to 'Back', plays_path %>

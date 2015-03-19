@@ -1,0 +1,37 @@
+<%= form_for(@substitution) do |f| %>
+  <% if @substitution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@substitution.errors.count, "error") %> prohibited this substitution from being saved:</h2>
+
+      <ul>
+      <% @substitution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :player_in %><br>
+    <%= f.number_field :player_in %>
+  </div>
+  <div class="field">
+    <%= f.label :player_out %><br>
+    <%= f.number_field :player_out %>
+  </div>
+  <div class="field">
+    <%= f.label :game_id %><br>
+    <%= f.text_field :game_id %>
+  </div>
+  <div class="field">
+    <%= f.label :team_id %><br>
+    <%= f.text_field :team_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

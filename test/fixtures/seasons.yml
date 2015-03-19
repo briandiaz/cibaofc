@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: seasons
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  year       :integer
+#  country_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+# Indexes
+#
+#  index_seasons_on_country_id  (country_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: 1
+  country_id: 
+  city_id: 
+
+two:
+  name: MyString
+  year: 1
+  country_id: 
+  city_id: 

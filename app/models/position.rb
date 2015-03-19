@@ -11,8 +11,12 @@
 #
 
 class Position < ActiveRecord::Base
-    
-  validates :name, presence: true
-  validates :short_name, presence: true
+  has_many :player
+  
+  validates :name, :short_name, presence: true
+  
+  def self.all_collect
+    Position.all.collect {|p| [ p.name + " - " + p.short_name, p.id ] }
+  end
   
 end

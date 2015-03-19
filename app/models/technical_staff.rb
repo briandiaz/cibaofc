@@ -19,6 +19,8 @@
 class TechnicalStaff < ActiveRecord::Base
   belongs_to :person
   belongs_to :team
-  belongs_to :team
   belongs_to :tech_role
+  
+  validates :person_id, :tech_role_id, :team_id, presence: true, numericality: true
+  
 end

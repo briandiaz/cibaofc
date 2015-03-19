@@ -1,0 +1,49 @@
+<h1>Listing line_ups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Team</th>
+      <th>Player 1</th>
+      <th>Player 2</th>
+      <th>Player 3</th>
+      <th>Player 4</th>
+      <th>Player 5</th>
+      <th>Player 6</th>
+      <th>Player 7</th>
+      <th>Player 8</th>
+      <th>Player 9</th>
+      <th>Player 10</th>
+      <th>Player 11</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_ups.each do |line_up| %>
+      <tr>
+        <td><%= line_up.game %></td>
+        <td><%= line_up.team %></td>
+        <td><%= line_up.player_1 %></td>
+        <td><%= line_up.player_2 %></td>
+        <td><%= line_up.player_3 %></td>
+        <td><%= line_up.player_4 %></td>
+        <td><%= line_up.player_5 %></td>
+        <td><%= line_up.player_6 %></td>
+        <td><%= line_up.player_7 %></td>
+        <td><%= line_up.player_8 %></td>
+        <td><%= line_up.player_9 %></td>
+        <td><%= line_up.player_10 %></td>
+        <td><%= line_up.player_11 %></td>
+        <td><%= link_to 'Show', line_up %></td>
+        <td><%= link_to 'Edit', edit_line_up_path(line_up) %></td>
+        <td><%= link_to 'Destroy', line_up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line up', new_line_up_path %>
