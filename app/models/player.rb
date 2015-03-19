@@ -38,6 +38,11 @@ class Player < ActiveRecord::Base
     "#{feet}' #{inches}\""
   end
   
+  def self.weight_to_kilos()
+    kilos = (weight/2.20462).truncate
+    "#{kilos}"
+  end
+  
   #def self.profile_name
   #  "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
   #end

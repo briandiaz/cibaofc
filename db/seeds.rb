@@ -119,3 +119,32 @@ Round.delete_all
 (1..18).each do |number|
     Round.create!(:name => "Jornada " + number.to_s, :season => season)
 end
+
+TechnicalStaff.delete_all
+Player.delete_all
+Person.delete_all
+#
+#  id                     :integer          not null, primary key
+#  first_name             :string(255)
+#  middle_name            :string(255)
+#  last_name              :string(255)
+#  sur_name               :string(255)
+#  sex                    :string(255)
+#  identification_number  :string(255)
+#  birthdate              :date
+#  phone                  :string(255)
+#  mobile                 :string(255)
+#  additional_phone       :string(255)
+#  email                  :string(255)
+#  salary                 :decimal(, )
+#  additional_information :text
+#  photo                  :string(255)
+#  city_id                :integer
+#  created_at             :datetime
+#  updated_at             :datetime
+#  country_id             :integer
+#
+Person.create!(first_name: "", middle_name: "", last_name: "", sur_name: "", sex: "", 
+                identification_number: "", birthdate: "", phone: "", mobile: "",
+                additional_phone: "", email: "", salary: nil, additional_information: "",
+                photo: "", city_id: nil, country_id: nil)
