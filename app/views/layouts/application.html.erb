@@ -10,6 +10,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag Sync.adapter_javascript_url %>
 </head>
 <body>
 <div class="navbar-holder-dark">
@@ -52,8 +54,6 @@
 </div>
 <!--.container-->
 
-
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
 </html>

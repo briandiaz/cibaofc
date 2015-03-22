@@ -32,20 +32,37 @@ class Player < ActiveRecord::Base
     self.person ||= self.build_person()
   end
   
-  def self.height_to_feet_inches()
-    feet, inches = (height/30.48).to_s.split(".")
-    inches = inches[0]
+  def height_to_feet_inches
+    inches = (height / 2.54)
+    feet = (inches / 12).to_i
+    inches = (inches % 12).ceil
     "#{feet}' #{inches}\""
   end
   
-  def self.weight_to_kilos()
+  def weight_to_kilos
     kilos = (weight/2.20462).truncate
-    "#{kilos}"
+    "#{kilos} kg"
   end
   
-  #def self.profile_name
-  #  "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
-  #end
+  def team_name
+    team.name
+  end
+  
+  def team_short_name
+    team.short_name
+  end
+  
+  def position_name
+    position.name
+  end
+  
+  def info
+    "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
+  end
+  
+  def debut_date_format
+    (debut_date) ? debut_date.strftime("%d %m, %Y") : ""
+  end
 
 
 end

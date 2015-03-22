@@ -36,8 +36,22 @@ class Person < ActiveRecord::Base
   validates :first_name, :last_name, :sex, presence: true
   
   
-  def self.full_name
+  def name
     "#{first_name} #{last_name}"
+  end
+  
+  
+  def birthdate_format
+    (birthdate) ? birthdate.strftime("%d %m, %Y") : ""
+  end
+  
+  def age
+    now = Time.now.utc.to_date
+    (birthdate) ? now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0) : ""
+  end
+  
+  def birth_place
+    (country_id && city_id) ? "#{City.find(city_id).name}, #{Country.find(country_id).name}" : ""
   end
   
 end

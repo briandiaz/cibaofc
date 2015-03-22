@@ -21,6 +21,9 @@
 body{
     background: #132245;
 }
+.wrap_container{
+  margin: 30px;
+}
 .bg_white{
     background: #fff;
     color: #000;

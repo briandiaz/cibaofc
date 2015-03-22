@@ -28,6 +28,8 @@ gem 'faye'
 gem 'thin', require: false
 gem 'sync'
 
+gem 'unicorn'
+
 # Charts
 gem 'morrisjs-rails'
 gem 'raphael-rails'

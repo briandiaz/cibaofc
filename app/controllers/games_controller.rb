@@ -42,6 +42,7 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
+        sync_update @game
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else

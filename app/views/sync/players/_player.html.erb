@@ -1,0 +1,73 @@
+<div class="wrap_container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-md-1">
+      <a class="btn-social btn-bitbucket" href="#"><i class="fa fa-chevron-left"></i></a>
+    </div>
+    <div class="col-md-11">
+        <div class="col-md-4 col-sm-12">
+          <img src="http://www.cibaofc.com/wp-content/uploads/2015/03/cibaofc-7-aitor-ramirez-espejo.jpg" class="img-responsive img-thumbnail align-center" />
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+              <a class="btn-social btn-flickr" href="#"><i class="fa fa-line-chart"></i></a>
+            </div>
+            <div class="col-sm-5 col-sm-offset-1">
+              <a class="btn-social btn-lastfm" href="#"><i class="fa fa-heart-o"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-sm-4">
+              <h2><span class="label label-info">#<%= @player.shirt_number %></span></h2> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h1><%= @player.person.name %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <h3><label class="label label-primary"><%= @player.height_to_feet_inches %></label></h3>
+            </div>
+            <div class="col-sm-5">
+              <h3><label class="label label-success"><%= @player.weight_to_kilos %> (<%= @player.weight %> lb)</label></h3>
+            </div>
+            <div class="col-sm-3">
+              <%= link_to @player.team do %>
+                <h3><label class="label label-warning"><%= @player.team_short_name %></label></h3>
+              <% end %>
+            </div>
+            <div class="col-sm-2">
+              <%= link_to @player.position do %>
+                <h3><label class="label label-danger"><%= @player.position.short_name %></label></h3>
+              <% end %>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="well">
+                <% if @player.position %><p><strong>Position:</strong> <%= @player.position_name %></p><% end %>
+                <% if @player.person.birthdate %>
+                <p><strong>Birth Date:</strong> <%= @player.person.birthdate_format %></p>
+                <p><strong>Age:</strong> <%= @player.person.age %></p>
+                <% end %>
+                <% if @player.debut_date %><p><strong>Debut date:</strong> <%= @player.debut_date_format %> </p><% end %>
+                <% if @player.person.country_id %><p><strong>Birth Place:</strong> <%= @player.person.birth_place %></p><% end %>
+                <% if @player.person.additional_information %><p><strong>BIO:</strong></p>
+                <%= @player.person.additional_information %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+    
+    </div>
+    
+  </div>
+
+</div>
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>
