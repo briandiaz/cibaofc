@@ -5,11 +5,8 @@
     <tr>
       <th>Height</th>
       <th>Weight</th>
-      <th>Shirt number</th>
-      <th>Debut date</th>
-      <th>Person</th>
+      <th>Info</th>
       <th>Team</th>
-      <th>Position</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +16,8 @@
       <tr>
         <td><%= player.height %></td>
         <td><%= player.weight %></td>
-        <td><%= player.shirt_number %></td>
-        <td><%= player.debut_date %></td>
-        <td><%= player.person %></td>
-        <td><%= player.team %></td>
-        <td><%= player.position %></td>
+        <td><%= player.info %></td>
+        <td><%= player.team.name %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

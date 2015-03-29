@@ -1,49 +1,62 @@
-
-  <div class="form-group">
-    <%= f.label :shirt_number, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.number_field :shirt_number, :class => 'form-control' %>
+<div class="well">
+  <fieldset>Datos del Jugador</fieldset>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :shirt_number, :class => 'control-label col-sm-5' %>
+        <div class="col-sm-7">
+          <%= f.number_field :shirt_number, :class => 'form-control' %>
+        </div>
+        <%= error_span(@player[:shirt_number]) %>
+      </div>
     </div>
-    <%= error_span(@player[:shirt_number]) %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :height, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.number_field :height, :class => 'form-control' %>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :height, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.number_field :height, :class => 'form-control' %>
+        </div>
+        <%= error_span(@player[:height]) %>
+      </div>
     </div>
-    <%= error_span(@player[:height]) %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :weight, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.number_field :weight, :class => 'form-control' %>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :weight, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.number_field :weight, :class => 'form-control' %>
+        </div>
+        <%= error_span(@player[:weight]) %>
+      </div>
     </div>
-    <%= error_span(@player[:weight]) %>
   </div>
-  
-  <div class="form-group">
-    <%= f.label :debut_date, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-        <%= f.text_field :debut_date, :class => "form-control" %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :debut_date, :class => 'control-label col-sm-5' %>
+        <div class="col-sm-7">
+            <%= f.text_field :debut_date, :class => "form-control" %>
+        </div>
+        <%= error_span(@player[:debut_date]) %>
+      </div>
+      
     </div>
-    <%= error_span(@player[:debut_date]) %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :team_id, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.select(:team_id, Team.all_collect, { include_blank: true })  %>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :team_id, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.select(:team_id, Team.all_collect, { include_blank: true }, :class => "form-control")  %>
+        </div>
+        <%= error_span(@player[:team_id]) %>
+      </div>
     </div>
-    <%= error_span(@player[:team_id]) %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :position_id, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.select(:position_id, Position.all_collect, { include_blank: true })  %>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :position_id, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.select(:position_id, Position.all_collect, { include_blank: true }, :class => "form-control")  %>
+        </div>
+        <%= error_span(@player[:position_id]) %>
+      </div>
     </div>
-    <%= error_span(@player[:position_id]) %>
   </div>
-  
+</div>

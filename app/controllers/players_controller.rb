@@ -33,7 +33,8 @@ class PlayersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @player.update(player_params)
+      @person = Person.find(@player.person_id)
+      if @player.update(player_params) && @person.update(person_params)
         sync_update @player
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
@@ -59,12 +60,12 @@ class PlayersController < ApplicationController
     end
   
     def person_params
-      params.require(:person).permit(:first_name, :middle_name, :last_name, :sur_name, :sex, :identification_number, :birthdate, :phone, :mobile, :additional_phone, :email, :salary, :additional_information, :photo, :city_id)
+      params.require(:person).permit(:first_name, :middle_name, :last_name, :sur_name, :sex, :identification_number, :birthdate, :phone, :mobile, :additional_phone, :email, :salary, :additional_information, :photo, :country_id, :city_id)
     end
 
     def player_params
       params.require(:player).permit(:height, :weight, :shirt_number, :debut_date, :team_id, :position_id,
         person_attributes: [:first_name, :middle_name, :last_name, :sur_name, :sex, :identification_number, :birthdate, 
-                          :phone, :mobile, :additional_phone, :email, :salary, :additional_information, :photo, :city_id])
+                          :phone, :mobile, :additional_phone, :email, :salary, :additional_information, :photo, :country_id, :city_id])
     end
 end

@@ -1,4 +1,3 @@
-<div class="well bs-component">
   <%= form_for(@player, :class => "form-horizontal", :role=>"form") do |f| %>
       <fieldset>
     <% if @player.errors.any? %>
@@ -13,19 +12,40 @@
       </div>
     <% end %>
     
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="pull-right">
+              <%= f.submit class: "btn btn-md btn-primary" %>
+              <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                        people_path, :class => 'btn btn-danger' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <%= fields_for :person, @player.person do |person_fields| %>
       <%= render partial: "people/fields", :locals => { :@person => @player.person, :f => person_fields }%>
     <% end %>
     
     <%= render partial: "fields", :locals => { :@player => @player, :f => f }%>
     
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <%= f.submit class: "btn btn-md btn-primary" %>
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="pull-right">
+              <%= f.submit class: "btn btn-md btn-primary" %>
+              <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                        people_path, :class => 'btn btn-danger' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     
     </fieldset>
   <% end %>
   
-</div>

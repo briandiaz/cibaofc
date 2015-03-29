@@ -1,34 +1,52 @@
-# Faye
-development:
-  server: "http://ibaofc-briandiaz-1.c9.io:9292/faye"
-  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
-  auth_token: kajfajs1239129qiidasdad9a9292dakdasd
-  adapter: "Faye"
-  async: true
 
 # Pusher
-# development:
-#   adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
-#   app_id: "YOUR_PUSHER_APP_ID"
-#   api_key: "YOUR_PUSHER_API_KEY"
-#   auth_token: "YOUR_PUSHER_SECRET"
-#   adapter: "Pusher"
-#   async: true
+development:
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: "112385"
+  api_key: "b52053310beb9607839d"
+  auth_token: "e6f298b4ffa1cd577fbd"
+  adapter: "Pusher"
+  async: true
+  
+test:
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: "112385"
+  api_key: "b52053310beb9607839d"
+  auth_token: "e6f298b4ffa1cd577fbd"
+  adapter: "Pusher"
+  async: true
+
+production:
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: "112385"
+  api_key: "b52053310beb9607839d"
+  auth_token: "e6f298b4ffa1cd577fbd"
+  adapter: "Pusher"
+  async: true
+
+
+# Faye
+#development:
+#  server: "http://cibaofc-briandiaz-1.c9.io:9292/faye"
+#  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
+#  auth_token: kajfajs1239129qiidasdad9a9292dakdasd
+#  adapter: "Faye"
+#  async: true
 
 # Disabled
 # development:
 #   adapter: false
 
-test:
-  server: "http://cibaofc-briandiaz-1.c9.io/faye"
-  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
-  adapter: "Faye"
-  auth_token: "secret"
-  async: false
+#test:
+#  server: "http://cibaofc-briandiaz-1.c9.io/faye"
+#  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
+#  adapter: "Faye"
+#  auth_token: "secret"
+#  async: false
 
-production:
-  server: "http://cibaofc-briandiaz-1.c9.io/faye"
-  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
-  adapter: "Faye"
-  auth_token: "3386094f4dad11691b66a1e5fa96b43c7d490c44ac165c31ffdea7ac5553eb47"
-  async: true
+#production:
+#  server: "http://cibaofc-briandiaz-1.c9.io/faye"
+#  adapter_javascript_url: "http://cibaofc-briandiaz-1.c9.io/faye/faye.js"
+#  adapter: "Faye"
+#  auth_token: "3386094f4dad11691b66a1e5fa96b43c7d490c44ac165c31ffdea7ac5553eb47"
+#  async: true

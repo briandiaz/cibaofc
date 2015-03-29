@@ -23,9 +23,11 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 2.0'
 
-# Real Time
-gem 'faye'
-gem 'thin', require: false
+# Faye Real Time
+#gem 'faye'
+#gem 'thin', require: false
+# Pusher Real Time
+gem 'pusher'
 gem 'sync'
 
 gem 'unicorn'

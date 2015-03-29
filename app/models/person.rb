@@ -51,7 +51,7 @@ class Person < ActiveRecord::Base
   end
   
   def birth_place
-    (country_id && city_id) ? "#{City.find(city_id).name}, #{Country.find(country_id).name}" : ""
+    (country_id != nil && city_id != nil) ? "#{City.find(city_id).name}, #{Country.find(country_id).name}" : ""
   end
   
 end

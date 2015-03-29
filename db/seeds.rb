@@ -285,6 +285,7 @@ City.create(:id=>763,:iso=>"02",:name=>"Baoruco",:country_id=>61)
 City.create(:id=>764,:iso=>"01",:name=>"Azua",:country_id=>61)
 City.create(:id=>765,:iso=>"36",:name=>"San José de Ocoa",:country_id=>61)
 City.create(:id=>766,:iso=>"37",:name=>"Santo Domingo",:country_id=>61)
+City.create(:id=>767,:iso=>"38",:name=>"Salcedo",:country_id=>61)
 
 
 City.create(:id=>890,:iso=>"07",:name=>"Balearic Islands",:country_id=>68)
@@ -386,31 +387,64 @@ stadium = Stadium.create!(name: "Estadio Cibao FC", founded_date: "2015-03-08", 
 team = Team.create!(name: "Cibao FC", short_name: "CFC", founded_date: "2015-03-08", value: 500000000, country_id: 61, city_id: 737, stadium_id: stadium.id)
 
 # New Player
-person = Person.create!(first_name: "Aitor", middle_name: "", last_name: "Ramírez", sur_name: "Espejo", sex: "Masculino", 
+person = Person.create!(id: 1, first_name: "Aitor", middle_name: "", last_name: "Ramírez", sur_name: "Espejo", sex: "Masculino", 
                 identification_number: "", birthdate: "1991-05-13", phone: "", mobile: "",
                 additional_phone: "", email: "", salary: nil, additional_information: "Ha jugado fútbol desde los cinco años de edad, empezando en la isla de Ibiza, en donde ganó una liga en Alevin. A los 13 sale de Ibiza y llega a Barcelona a formarse, ahí jugó en el Mataró y Damm, hasta los 18 años. Participa en las ligas Nacional y División de Honor. Con 19 años jugó en el Sabadell (Ascenso a Segunda División) y en el Dénia (Segunda División B); el siguiente año estuvo en la Peña Deportiva Santa Eulalia (Tercera División) y se coronó Campeón de la Liga de Tercera División y más tarde en la Segunda División B en el Sant Andreu. A sus 23, justo antes de integrarse al Cibao FC estaba en Inglaterra donde jugó por seis meses la National Conference.",
                 photo: "", city_id: 890, country_id: 68)
                 
 position = Position.where(short_name: "PD").first
 
-player = Player.create!(height: 170, weight: 148, shirt_number: 7, debut_date: nil, person_id: person.id, team_id: team.id, position_id: position.id)
+player = Player.create!(id: 1, height: 170, weight: 148, shirt_number: 7, debut_date: nil, person_id: person.id, team_id: team.id, position_id: position.id)
 
 # New Player
-person = Person.create!(first_name: "Edward", middle_name: "Arturo", last_name: "Acevedo", sur_name: "Cruz", sex: "Masculino", 
+person = Person.create!(id: 2, first_name: "Edward", middle_name: "Arturo", last_name: "Acevedo", sur_name: "Cruz", sex: "Masculino", 
                 identification_number: "", birthdate: "1985-12-10", phone: "", mobile: "",
                 additional_phone: "", email: "", salary: nil, additional_information: "Futbolista internacional de la República Dominicana. Se desempeña en el terreno de juego como Defensa Lateral y Mediocampista Ofensivo. Empezó a jugar de pequeño, pero debía llevar las prácticas con el balón junto al béisbol, deporte con el que sí estaba de acuerdo su padre. Representó al país por primera vez en 2004, en Cuba, con la Selección Nacional. Su trayectoria profesional incluye el Club Atlético Barcelona, con el que fue campeón en 2007; FK Veternik 2009- 2010 de Serbia; desde 2010 y hasta 2014 jugó en Bosnia con los clubes FK Modriča, FK Rudar Prijedor, FK Sloga Doboj, FK Tekstilac Derventa.",
                 photo: "", city_id: 766, country_id: 68)
                 
 position = Position.where(short_name: "DL").first
 
-player = Player.create!(height: 163, weight: 148, shirt_number: 20, debut_date: "2006-01-01", person_id: person.id, team_id: team.id, position_id: position.id)
+player = Player.create!(id: 2, height: 163, weight: 148, shirt_number: 20, debut_date: "2006-01-01", person_id: person.id, team_id: team.id, position_id: position.id)
 
 # New Player
-person = Person.create!(first_name: "Heinz", middle_name: "Arturo", last_name: "Barmettler", sur_name: "Veloz", sex: "Masculino", 
+person = Person.create!(id: 3, first_name: "Heinz", middle_name: "Arturo", last_name: "Barmettler", sur_name: "Veloz", sex: "Masculino", 
                 identification_number: "", birthdate: "1987-07-21", phone: "", mobile: "",
                 additional_phone: "", email: "", salary: nil, additional_information: "Heinz es un jugador versátil, proveniente de Grasshopper B- club deportivo de la ciudad suiza de Zurich. Por seis años formó parte del plantel FC Zurich, y luego en el Inter de Bakú (Azerbaiyán). En el año 2013, se convierte en el primer dominicano en jugar en la Liga BBVA de España tras firmar un contrato por 2 años con el Real Valladolid de la Primera División. En 2012, representa a la República Dominicana en la Copa del Caribe. Heinz se destaca como un jugador de alto nivel, especialista en el corte y con un gran manejo del balón. Uno de los centrales de mayor proyección en el equipo.",
                 photo: "", country_id: 43)
                 
 position = Position.where(short_name: "DC").first
 
-player = Player.create!(height: 181, weight: 176, shirt_number: 21, debut_date: "2005-01-01", person_id: person.id, team_id: team.id, position_id: position.id)
+player = Player.create!(id: 3, height: 181, weight: 176, shirt_number: 21, debut_date: "2005-01-01", person_id: person.id, team_id: team.id, position_id: position.id)
+
+
+# New Player
+person = Person.create!(id: 4, first_name: "Alexander", middle_name: "", last_name: "Vidal", sur_name: "Ceballos", sex: "Masculino", 
+                identification_number: "", birthdate: "1996-02-09", phone: "", mobile: "",
+                additional_phone: "", email: "", salary: nil, additional_information: "Incursionó en el fútbol a los nueve años de edad con la Academia de Fútbol de Santiago, donde permaneció durante nueve años. En 2013, fue galardonado como mejor defensa por el Palm Beach Central High School; y seleccionado al All Star Team del Country, liderando al equipo por dos años consecutivos. Ha participado en la Selección Nacional Sub-17 en las eliminatorias al mundial de Qatar y Sub 20 al Pre-Mundial de Nueva Zelanda 2015.",
+                photo: "", country_id: 43, city_id: 737)
+                
+position = Position.where(short_name: "DC").first
+
+player = Player.create!(id: 4, height: 181, weight: 170, shirt_number: 17, person_id: person.id, team_id: team.id, position_id: position.id)
+
+
+# New Player
+person = Person.create!(id: 5, first_name: "Rafael", middle_name: "Leonardo", last_name: "Flores", sur_name: "", sex: "Masculino", 
+                identification_number: "", birthdate: "1991-04-24", phone: "", mobile: "",
+                additional_phone: "", email: "", salary: nil, additional_information: "Su debut deportivo fue en el año 2007 con el Club Deportivo Pantoja de la primera división de República Dominicana, donde logró coronarse en el 2012 como Campeón Nacional. En el período 2012-2013 estuvo con el equipo Tempête FC, de Haití. Flores forma parte de la Selección Nacional Superior de nuestro país, desde 2011. En la pasada temporada jugó con Grenades FC Antigua & Barbuda.",
+                photo: "", country_id: 43, city_id: 768)
+                
+position = Position.where(short_name: "MCD").first
+
+player = Player.create!(id: 6, height: 170, weight: 155, shirt_number: 13, person_id: person.id, team_id: team.id, position_id: position.id)
+
+
+# New Player
+person = Person.create!(id: 7, first_name: "Modesto", middle_name: "", last_name: "Aróstegui", sur_name: "", sex: "Masculino", 
+                identification_number: "", birthdate: "1991-10-24", phone: "", mobile: "",
+                additional_phone: "", email: "", salary: nil, additional_information: "Amante del juego fluido y combinativo. Inició su carrera a los 10 años de edad en Santiago, en el Colegio De la Salle al mando del entrenador José Martí Gómez, quien también lo guiaba en club del Centro Español de la ciudad. Al graduarse de bachiller optó por una beca de excelencia académica y deportiva en Estados Unidos. Primero perteneció a la University of Science and Arts of Oklahoma en la que formó parte de la división NAIA (National Association of Intercollegiate Athletics), en donde jugó dos años desde 2010. En 2012 se transfirió a la Palm Beach Atlantic University y participó en su división más alta, la NCAA (National Collegiate Athletic Association) División II, en la que jugó por dos años más. En 2014, fue Campeón Regional en la División I del National Christian College Athletic Association y en 2011 de la Sooner Athletic Conference de la División NAIA y en 2009 de la Copa Caribeña en Santo Domingo, entre otras.",
+                photo: "", country_id: 43, city_id: 737)
+                
+position = Position.where(short_name: "DEF").first
+
+player = Player.create!(id: 7, height: 181, weight: 160, shirt_number: 4, person_id: person.id, team_id: team.id, position_id: position.id)

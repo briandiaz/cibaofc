@@ -1,114 +1,157 @@
+<div class="well">
+  <fieldset>Datos Básicos</fieldset><br/>
+  <div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :first_name, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :first_name, :class => 'form-control' %>
+        <%= error_span(@person[:first_name]) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :last_name, :class => 'form-control' %>
+        <%= error_span(@person[:last_name]) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :sex, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :sex, :class => 'form-control' %>
+      <%= error_span(@person[:sex]) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :middle_name, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :middle_name, :class => 'form-control' %>
+        <%= error_span(@person[:middle_name]) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :sur_name, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :sur_name, :class => 'form-control' %>
+      <%= error_span(@person[:sur_name]) %>
+      </div>
+    
+    </div>
+    <div class="form-group">
+      <%= f.label :identification_number, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-8">
+        <%= f.text_field :identification_number, :class => 'form-control' %>
+      <%= error_span(@person[:identification_number]) %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-  <div class="form-group">
-    <%= f.label :first_name, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :first_name, :class => 'form-control' %>
-    <%= error_span(@person[:first_name]) %>
+<div class="well">
+  <fieldset>Datos Personales</fieldset><br/>
+  <div class="row">
+    <div class="col-md-6">
+      
+      <div class="form-group">
+        <%= f.label :birthdate, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :birthdate, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:birthdate]) %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :phone, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :phone, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:phone]) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :additional_phone, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :additional_phone, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:additional_phone]) %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :country_id, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= select("person", "country_id", Country.all.collect {|p| [ p.name , p.id ] }, { include_blank: true }, :class => 'form-control' ) %>
+        </div>
+        <%= error_span(@person[:country_id]) %>
+      </div>
     </div>
     
-    <%= f.label :middle_name, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :middle_name, :class => 'form-control' %>
-    <%= error_span(@person[:middle_name]) %>
+    <div class="col-md-6">
+      
+      <div class="form-group">
+        <%= f.label :email, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :email, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:email]) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :mobile, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :mobile, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:mobile]) %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :salary, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :salary, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:salary]) %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :city_id, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= select("person", "city_id", City.eager_load(:country).collect {|p| [ p.name + " - " + p.country.name , p.id ] }, { include_blank: true }, :class => 'form-control' ) %>
+        </div>
+        <%= error_span(@person[:city_id]) %>
+      </div>
+      
     </div>
   </div>
+</div>
+
+<div class="well">
+  <fieldset>Datos Adicionales</fieldset><br/>
+  <div class="row">
+    <div class="col-md-6">
+      
+    <div class="form-group">
+        <%= f.label :additional_information, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_area :additional_information, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:additional_information]) %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      
+      <div class="form-group">
+        <%= f.label :photo, :class => 'control-label col-sm-4' %>
+        <div class="col-sm-8">
+          <%= f.text_field :photo, :class => 'form-control' %>
+        </div>
+        <%= error_span(@person[:photo]) %>
+      </div>
+    </div>
+  </div>  
+</div>
+
   
-  <div class="form-group">
-    <%= f.label :last_name, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :last_name, :class => 'form-control' %>
-    <%= error_span(@person[:last_name]) %>
-    </div>
-    
-    <%= f.label :sur_name, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :sur_name, :class => 'form-control' %>
-    <%= error_span(@person[:sur_name]) %>
-    </div>
-  </div>
   
-  <div class="form-group">
-    <%= f.label :sex, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :sex, :class => 'form-control' %>
-    <%= error_span(@person[:sex]) %>
-    </div>
-    
-    <%= f.label :identification_number, :class => 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :identification_number, :class => 'form-control' %>
-    <%= error_span(@person[:identification_number]) %>
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :birthdate, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :birthdate, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:birthdate]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :phone, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:phone]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :mobile, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :mobile, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:mobile]) %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :additional_phone, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :additional_phone, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:additional_phone]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :email, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:email]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :salary, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :salary, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:salary]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :additional_information, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :additional_information, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:additional_information]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :photo, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= f.text_field :photo, :class => 'form-control' %>
-    </div>
-    <%= error_span(@person[:photo]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :country_id, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= select("person", "country_id", Country.all.collect {|p| [ p.name , p.id ] }, { include_blank: true }, :class => 'form-control' ) %>
-    </div>
-    <%= error_span(@person[:country_id]) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :city_id, :class => 'control-label col-sm-3' %>
-    <div class="col-sm-9">
-      <%= select("person", "city_id", City.eager_load(:country).collect {|p| [ p.name + " - " + p.country.name , p.id ] }, { include_blank: true }, :class => 'form-control' ) %>
-    </div>
-    <%= error_span(@person[:city_id]) %>
-  </div>
