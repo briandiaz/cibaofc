@@ -45,7 +45,7 @@ class Person < ActiveRecord::Base
   end
   
   def birthdate_format
-    (birthdate) ? birthdate.strftime("%d %m, %Y") : ""
+    birthdate.strftime("%d %B, %Y") || ""
   end
   
   def age

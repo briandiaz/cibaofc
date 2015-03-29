@@ -41,20 +41,28 @@ class Player < ActiveRecord::Base
   end
   
   def info
-    "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
+    "#{person.first_name} #{person.last_name} ##{shirt_number}"
   end
   
   def height_to_feet_inches
-    inches = (height / 2.54)
-    feet = (inches / 12).to_i
-    inches = (inches % 12).ceil
-    feet, inches = feet + 1, 0 if (inches == 12) # In case inches are 12, feet must be increased by one and feets must be restarted.
-    "#{feet}' #{inches}\""
+    if height
+      inches = (height / 2.54)
+      feet = (inches / 12).to_i
+      inches = (inches % 12).ceil
+      feet, inches = feet + 1, 0 if (inches == 12) # In case inches are 12, feet must be increased by one and feets must be restarted.
+      "#{feet}' #{inches}\""
+    else
+      nil
+    end
   end
   
   def weight_to_kilos
-    kilos = (weight/2.20462).truncate
-    "#{kilos} kg"
+    if weight
+      kilos = (weight/2.20462).truncate
+      "#{kilos} kg"
+    else
+      nil
+    end
   end
   
   def team_name
@@ -66,7 +74,11 @@ class Player < ActiveRecord::Base
   end
   
   def position_name
-    position.name
+    position.name if position
+  end
+  
+  def position_short_name
+    position.short_name  if position
   end
   
   def debut_date_format
