@@ -25,17 +25,30 @@ class Player < ActiveRecord::Base
   belongs_to :team
   belongs_to :position
 
-  validates :person_id, :position_id, :team_id, :shirt_number, presence: true, numericality: true
+  validates :person_id, :team_id, :shirt_number, presence: true, numericality: true
   
   accepts_nested_attributes_for :person
   after_initialize do
     self.person ||= self.build_person()
   end
   
+  def name
+    person.name
+  end
+  
+  def full_name
+    person.name
+  end
+  
+  def info
+    "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
+  end
+  
   def height_to_feet_inches
     inches = (height / 2.54)
     feet = (inches / 12).to_i
     inches = (inches % 12).ceil
+    feet, inches = feet + 1, 0 if (inches == 12) # In case inches are 12, feet must be increased by one and feets must be restarted.
     "#{feet}' #{inches}\""
   end
   
@@ -56,14 +69,9 @@ class Player < ActiveRecord::Base
     position.name
   end
   
-  def info
-    "#{person.first_name} #{person.last_name} ##{shirt_number} - #{position.short_name}"
-  end
-  
   def debut_date_format
     (debut_date) ? debut_date.strftime("%d %m, %Y") : ""
   end
-
 
 end
 

@@ -40,6 +40,9 @@ class Person < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def full_name
+    "#{first_name} #{middle_name} #{last_name} #{sur_name}"
+  end
   
   def birthdate_format
     (birthdate) ? birthdate.strftime("%d %m, %Y") : ""
