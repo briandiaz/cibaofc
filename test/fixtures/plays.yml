@@ -3,20 +3,22 @@
 # Table name: plays
 #
 #  id           :integer          not null, primary key
-#  time         :time
 #  x_coordinate :decimal(, )
 #  y_coordinate :decimal(, )
-#  by           :integer
-#  assist_by    :integer
+#  by_id        :integer
+#  assist_by_id :integer
 #  playtype_id  :integer
 #  game_id      :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  team_id      :integer
+#  time         :integer
 #
 # Indexes
 #
 #  index_plays_on_game_id      (game_id)
 #  index_plays_on_playtype_id  (playtype_id)
+#  index_plays_on_team_id      (team_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

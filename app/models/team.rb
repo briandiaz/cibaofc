@@ -12,6 +12,7 @@
 #  city_id      :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  photo        :string(255)
 #
 # Indexes
 #
@@ -24,6 +25,10 @@ class Team < ActiveRecord::Base
   belongs_to :stadium
   belongs_to :country
   belongs_to :city
+  
+  has_many :plays
+  has_many :home_teams, :class_name => Game, :foreign_key => :home_team_id 
+  has_many :away_teams, :class_name => Game, :foreign_key => :away_team_id
   
   
   validates :name, presence: true

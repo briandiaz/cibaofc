@@ -2,22 +2,22 @@
 #
 # Table name: line_ups
 #
-#  id         :integer          not null, primary key
-#  game_id    :integer
-#  team_id    :integer
-#  player_1   :integer
-#  player_2   :integer
-#  player_3   :integer
-#  player_4   :integer
-#  player_5   :integer
-#  player_6   :integer
-#  player_7   :integer
-#  player_8   :integer
-#  player_9   :integer
-#  player_10  :integer
-#  player_11  :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id           :integer          not null, primary key
+#  game_id      :integer
+#  team_id      :integer
+#  player_1_id  :integer
+#  player_2_id  :integer
+#  player_3_id  :integer
+#  player_4_id  :integer
+#  player_5_id  :integer
+#  player_6_id  :integer
+#  player_7_id  :integer
+#  player_8_id  :integer
+#  player_9_id  :integer
+#  player_10_id :integer
+#  player_11_id :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 # Indexes
 #
@@ -42,10 +42,9 @@ class LineUp < ActiveRecord::Base
   
   has_one :line_up_sub
   
-  validates :game_id, :team_id, :player_1, :player_2, :player_3, :player_4, :player_5, 
-            :player_6, :player_7, :player_8, :player_9, :player_10, :player_11, 
+  validates :game_id, :team_id, :player_1_id, :player_2_id, :player_3_id, :player_4_id, :player_5_id, 
+            :player_6_id, :player_7_id, :player_8_id, :player_9_id, :player_10_id, :player_11_id, 
             presence: true, numericality: true
             
-  validates :game_id, uniqueness: true
   
 end

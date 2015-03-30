@@ -2,17 +2,17 @@
 #
 # Table name: line_up_subs
 #
-#  id         :integer          not null, primary key
-#  lineup_id  :integer
-#  player_1   :integer
-#  player_2   :integer
-#  player_3   :integer
-#  player_4   :integer
-#  player_5   :integer
-#  player_6   :integer
-#  player_7   :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  lineup_id   :integer
+#  player_1_id :integer
+#  player_2_id :integer
+#  player_3_id :integer
+#  player_4_id :integer
+#  player_5_id :integer
+#  player_6_id :integer
+#  player_7_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 # Indexes
 #

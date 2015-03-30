@@ -54,3 +54,5 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
 end
+
+gem 'activerecord-reset-pk-sequence'

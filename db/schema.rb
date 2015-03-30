@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318053617) do
+ActiveRecord::Schema.define(version: 20150330024542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20150318053617) do
   create_table "games", force: true do |t|
     t.datetime "date"
     t.integer  "round_id"
-    t.integer  "home_team"
-    t.integer  "away_team"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
     t.integer  "stadium_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20150318053617) do
 
   create_table "line_up_subs", force: true do |t|
     t.integer  "lineup_id"
-    t.integer  "player_1"
-    t.integer  "player_2"
-    t.integer  "player_3"
-    t.integer  "player_4"
-    t.integer  "player_5"
-    t.integer  "player_6"
-    t.integer  "player_7"
+    t.integer  "player_1_id"
+    t.integer  "player_2_id"
+    t.integer  "player_3_id"
+    t.integer  "player_4_id"
+    t.integer  "player_5_id"
+    t.integer  "player_6_id"
+    t.integer  "player_7_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,17 +64,17 @@ ActiveRecord::Schema.define(version: 20150318053617) do
   create_table "line_ups", force: true do |t|
     t.integer  "game_id"
     t.integer  "team_id"
-    t.integer  "player_1"
-    t.integer  "player_2"
-    t.integer  "player_3"
-    t.integer  "player_4"
-    t.integer  "player_5"
-    t.integer  "player_6"
-    t.integer  "player_7"
-    t.integer  "player_8"
-    t.integer  "player_9"
-    t.integer  "player_10"
-    t.integer  "player_11"
+    t.integer  "player_1_id"
+    t.integer  "player_2_id"
+    t.integer  "player_3_id"
+    t.integer  "player_4_id"
+    t.integer  "player_5_id"
+    t.integer  "player_6_id"
+    t.integer  "player_7_id"
+    t.integer  "player_8_id"
+    t.integer  "player_9_id"
+    t.integer  "player_10_id"
+    t.integer  "player_11_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -131,19 +131,21 @@ ActiveRecord::Schema.define(version: 20150318053617) do
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "plays", force: true do |t|
-    t.time     "time"
     t.decimal  "x_coordinate"
     t.decimal  "y_coordinate"
-    t.integer  "by"
-    t.integer  "assist_by"
+    t.integer  "by_id"
+    t.integer  "assist_by_id"
     t.integer  "playtype_id"
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
+    t.integer  "time"
   end
 
   add_index "plays", ["game_id"], name: "index_plays_on_game_id", using: :btree
   add_index "plays", ["playtype_id"], name: "index_plays_on_playtype_id", using: :btree
+  add_index "plays", ["team_id"], name: "index_plays_on_team_id", using: :btree
 
   create_table "positions", force: true do |t|
     t.string   "name"
@@ -211,6 +213,7 @@ ActiveRecord::Schema.define(version: 20150318053617) do
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo"
   end
 
   add_index "teams", ["city_id"], name: "index_teams_on_city_id", using: :btree

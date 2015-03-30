@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game_relations, only: [:show]
 
   # GET /games
   # GET /games.json
@@ -66,6 +67,17 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
+    end
+    def set_game_relations
+      @plays = Play.where(game_id: @game.id)
+      @home_goals = @game.home_goals
+      @away_goals = @game.away_goals
+      @substitutions = @game.substitutions
+      @home_players = @game.home_players
+      @away_players = @game.away_players
+      @home_subs = @game.home_subs(@home_players.id)
+      @away_subs = @game.away_subs(@away_players.id)
+      @latest_plays= @game.latest_plays
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,180 @@
+<div class="row game">
+      <div class="col-sm-4">
+        <h2><%= @game.home_team.name %></h2>
+        <img class="img-responsive" src="<%= @game.home_team.photo %>" width="128px" height="128px" />
+        
+      </div>
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <label><%= @game.date_format %></label>
+            <label><%= @game.time_format %></label>
+            <label><%= @game.stadium_info %></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <h1><%= @game.home_goals.count %></h1>
+            <% @game.home_goals.each do |goal| %>
+                <label class="label label-info"><i class="fa fa-futbol-o"></i> <%= goal.time %>' <%= goal.by.name %></label>
+            <% end %>
+          </div>
+          <div class="col-sm-1">
+            <h1>:</h1>
+          </div>
+          <div class="col-sm-5">
+            <h1><%= @game.away_goals.count %></h1>
+            <% @game.away_goals.each do |goal| %>
+                <label class="label label-danger"><i class="fa fa-futbol-o"></i> <%= goal.time %>' <%= goal.by.name %></label>
+            <% end %>
+          </div>
+        </div>  
+
+      </div>
+      
+      <div class="col-sm-4">
+        <h2><%= @game.away_team.name %></h2>
+        <img class="img-responsive" src="<%= @game.away_team.photo %>" width="128px" height="128px" />
+        
+      </div>
+    </div>
+    <hr/>
+    <div role="tabpanel">
+
+    <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#gamecast" aria-controls="home" role="tab" data-toggle="tab">GameCast</a></li>
+        <li role="presentation"><a href="#lineup" aria-controls="profile" role="tab" data-toggle="tab">LineUp</a></li>
+        <li role="presentation"><a href="#stats" aria-controls="messages" role="tab" data-toggle="tab">Stats</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="gamecast">
+          <ul class="timeline">
+            <% @latest_plays.each do |play| %>
+              <li class="<%= timeline_style(game: @game, team_id: play.team_id) %>">
+                <div class="timeline-badge warning"><%= play.time %>'</div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4 class="timeline-title"><%= play %></h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p><%= play.info %></p>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="lineup">
+          <div class="row">
+            <div class="col-sm-5">
+            <div class="table-responsive">
+                <h3><%= @game.home_team.name %></h3>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Nombre</th>
+                      <th>Pos.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% (1..11).each do |number| %>
+                        <% player = @home_players.send("player_#{number}") %>
+                        <tr>
+                          <td><%= player.shirt_number %></td>
+                          <td><%= player.name %></td>
+                          <td><%= player.position_short_name %></td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-sm-5 col-sm-offset-1">
+              
+            <div class="table-responsive">
+                <h3><%= @game.away_team.name %></h3>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Nombre</th>
+                      <th>Pos.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% (1..11).each do |number| %>
+                        <% player = @away_players.send("player_#{number}") %>
+                        <tr>
+                          <td><%= player.shirt_number %></td>
+                          <td><%= player.name %></td>
+                          <td><%= player.position_short_name %></td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-5">
+            <div class="table-responsive">
+                <h2>Suplentes</h2>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Nombre</th>
+                      <th>Pos.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% (1..7).each do |number| %>
+                        <% player = @home_subs.send("player_#{number}") %>
+                        <tr>
+                          <td><%= player.shirt_number %></td>
+                          <td><%= player.name %></td>
+                          <td><%= player.position_short_name %></td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-sm-5 col-sm-offset-1">
+              
+            <div class="table-responsive">
+                <h2>Suplentes</h2>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Nombre</th>
+                      <th>Pos.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% (1..7).each do |number| %>
+                        <% player = @away_subs.send("player_#{number}") %>
+                        <tr>
+                          <td><%= player.shirt_number %></td>
+                          <td><%= player.name %></td>
+                          <td><%= player.position_short_name %></td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="stats">
+          
+        </div>
+      </div>
+
+    </div>

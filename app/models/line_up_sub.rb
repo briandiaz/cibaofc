@@ -2,17 +2,17 @@
 #
 # Table name: line_up_subs
 #
-#  id         :integer          not null, primary key
-#  lineup_id  :integer
-#  player_1   :integer
-#  player_2   :integer
-#  player_3   :integer
-#  player_4   :integer
-#  player_5   :integer
-#  player_6   :integer
-#  player_7   :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  lineup_id   :integer
+#  player_1_id :integer
+#  player_2_id :integer
+#  player_3_id :integer
+#  player_4_id :integer
+#  player_5_id :integer
+#  player_6_id :integer
+#  player_7_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 # Indexes
 #
@@ -30,8 +30,8 @@ class LineUpSub < ActiveRecord::Base
   belongs_to :player_7, :class_name => Player
   
   
-  validates :lineup_id, :player_1, :player_2, :player_3, :player_4, :player_5, 
-            :player_6, :player_7, presence: true, numericality: true
+  validates :lineup_id, :player_1_id, :player_2_id, :player_3_id, :player_4_id, :player_5_id, 
+            :player_6_id, :player_7_id, presence: true, numericality: true
             
   validates :lineup_id, uniqueness: true
 end

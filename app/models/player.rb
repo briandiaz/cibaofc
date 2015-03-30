@@ -24,8 +24,32 @@ class Player < ActiveRecord::Base
   belongs_to :person
   belongs_to :team
   belongs_to :position
-
+  
   validates :person_id, :team_id, :shirt_number, presence: true, numericality: true
+  
+  has_many :by, :class_name => Play, :foreign_key => :by_id
+  has_many :assist_by, :class_name => Play, :foreign_key => :assist_by_id
+  
+  
+  has_many :player_1, :class_name => LineUp, :foreign_key => :player_1_id
+  has_many :player_2, :class_name => LineUp, :foreign_key => :player_2_id
+  has_many :player_3, :class_name => LineUp, :foreign_key => :player_3_id
+  has_many :player_4, :class_name => LineUp, :foreign_key => :player_4_id
+  has_many :player_5, :class_name => LineUp, :foreign_key => :player_5_id
+  has_many :player_6, :class_name => LineUp, :foreign_key => :player_6_id
+  has_many :player_7, :class_name => LineUp, :foreign_key => :player_7_id
+  has_many :player_8, :class_name => LineUp, :foreign_key => :player_8_id
+  has_many :player_9, :class_name => LineUp, :foreign_key => :player_9_id
+  has_many :player_10, :class_name => LineUp, :foreign_key => :player_10_id
+  has_many :player_11, :class_name => LineUp, :foreign_key => :player_11_id
+  
+  has_many :player_1, :class_name => LineUpSub, :foreign_key => :player_1_id
+  has_many :player_2, :class_name => LineUpSub, :foreign_key => :player_2_id
+  has_many :player_3, :class_name => LineUpSub, :foreign_key => :player_3_id
+  has_many :player_4, :class_name => LineUpSub, :foreign_key => :player_4_id
+  has_many :player_5, :class_name => LineUpSub, :foreign_key => :player_5_id
+  has_many :player_6, :class_name => LineUpSub, :foreign_key => :player_6_id
+  has_many :player_7, :class_name => LineUpSub, :foreign_key => :player_7_id
   
   accepts_nested_attributes_for :person
   after_initialize do

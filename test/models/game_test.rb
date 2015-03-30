@@ -2,14 +2,14 @@
 #
 # Table name: games
 #
-#  id         :integer          not null, primary key
-#  date       :datetime
-#  round_id   :integer
-#  home_team  :integer
-#  away_team  :integer
-#  stadium_id :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id           :integer          not null, primary key
+#  date         :datetime
+#  round_id     :integer
+#  home_team_id :integer
+#  away_team_id :integer
+#  stadium_id   :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 # Indexes
 #

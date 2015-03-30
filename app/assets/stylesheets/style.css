@@ -30,7 +30,7 @@ body{
     box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
 }
 .game{
-  background: url('assets/grass.jpg');
+  background: url('grass.jpg');
     color: white;
     text-shadow: 2px 2px 2px  rgba(0,0,0,0.8);
     box-shadow: 2px 2px 2px  rgba(0,0,0,0.8);
@@ -110,6 +110,7 @@ h4,h5{
   margin-left: 10%;
 }
 
+
 .timeline {
 list-style: none;
 padding: 20px 0 20px;
@@ -121,13 +122,15 @@ bottom: 0;
 position: absolute;
 content: " ";
 width: 3px;
-background-color: #eeeeee;
+background-color: rgb(19,34,69);
 left: 50%;
 margin-left: -1.5px;
 }
 .timeline > li {
 margin-bottom: 20px;
 position: relative;
+color: white;
+text-shadow: 1px 1px 1px rgba(0,0,0,0.37);
 }
 .timeline > li:before,
 .timeline > li:after {
@@ -148,16 +151,15 @@ clear: both;
 .timeline > li > .timeline-panel {
 width: 50%;
 float: left;
-border: 1px solid #d4d4d4;
-border-radius: 2px;
-padding: 20px;
+padding: 60px;
 position: relative;
+background: rgb(19,34,69);
 -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 }
 .timeline > li.timeline-inverted + li:not(.timeline-inverted),
 .timeline > li:not(.timeline-inverted) + li.timeline-inverted {
-margin-top: -60px;
+margin-top: -20px;
 }
 
 .timeline > li:not(.timeline-inverted) {
@@ -184,8 +186,8 @@ top: 27px;
 right: -14px;
 display: inline-block;
 border-top: 14px solid transparent;
-border-left: 14px solid #fff;
-border-right: 0 solid #fff;
+border-left: 14px solid rgb(19,34,69);
+border-right: 0 solid rgb(19,34,69);
 border-bottom: 14px solid transparent;
 content: " ";
 }
@@ -200,7 +202,7 @@ position: absolute;
 top: 16px;
 left: 50%;
 margin-left: -25px;
-background-color: #999999;
+background-color: rgb(19,34,69);
 z-index: 100;
 border-top-right-radius: 50%;
 border-top-left-radius: 50%;
